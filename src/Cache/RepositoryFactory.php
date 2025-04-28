@@ -10,6 +10,6 @@ class RepositoryFactory
         $cacheReflection = new ReflectionClass(get_class($store));
         $storeParent     = $cacheReflection->getParentClass();
         $parentName      = $storeParent ? $storeParent->name : '';
-        return $parentName == 'Illuminate\Cache\TaggableStore' ? new TaggedRepository($store, $cacheTag) : new SimpleRepository($store, $cacheTag);
+        return new SimpleRepository($store, $cacheTag);
     }
 }
